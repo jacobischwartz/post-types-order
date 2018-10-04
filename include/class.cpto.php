@@ -493,6 +493,8 @@
                                 
                             if(isset($options['show_reorder_interfaces'][$post_type_name]) && $options['show_reorder_interfaces'][$post_type_name] != 'show')
                                 continue;
+
+                            $capability = apply_filters('pto/edit_capability', $capability, $post_type_name);
                             
                             if ($post_type_name == 'post')
                                 add_submenu_page('edit.php', __('Re-Order', 'post-types-order'), __('Re-Order', 'post-types-order'), $capability, 'order-post-types-'.$post_type_name, array(&$this, 'SortPage') );
