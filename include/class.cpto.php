@@ -582,6 +582,12 @@
                     $output = '';
 
                     $r['exclude'] = implode( ',', apply_filters('wp_list_pages_excludes', array()) );
+	
+	                /* Fix for "Undefined variable $post_type" error ('post_type' => $post_type,). */
+	                $post_type='';
+	                if ( ! isset( $r['post_type'] ) ) {
+		                $post_type = $this->current_post_type->name;
+	                }
 
                     // Query pages.
                     $r['hierarchical'] = 0;
