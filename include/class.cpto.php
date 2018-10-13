@@ -620,7 +620,7 @@
 
                     $output = apply_filters('wp_list_pages', $output, $r);
 
-                    echo esc_html( $output );
+                    echo wp_kses_post( $output );
                 }
             
             function walkTree($pages, $depth, $r) 
