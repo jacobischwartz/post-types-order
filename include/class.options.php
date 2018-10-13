@@ -91,8 +91,8 @@
                                                 ?>
                                                 <p><label>
                                                     <select name="show_reorder_interfaces[<?php echo esc_attr($post_type_name); ?>]">
-                                                        <option value="show" <?php if(isset($options['show_reorder_interfaces'][$post_type_name]) && $options['show_reorder_interfaces'][$post_type_name] == 'show') {echo esc_attr(' selected="selected"');} ?>><?php esc_html_e( "Show", 'post-types-order' ) ?></option>
-                                                        <option value="hide" <?php if(isset($options['show_reorder_interfaces'][$post_type_name]) && $options['show_reorder_interfaces'][$post_type_name] == 'hide') {echo esc_attr(' selected="selected"');} ?>><?php esc_html_e( "Hide", 'post-types-order' ) ?></option>
+                                                        <option value="show" <?php if(isset($options['show_reorder_interfaces'][$post_type_name]) && $options['show_reorder_interfaces'][$post_type_name] == 'show') {echo ' selected="selected"';} ?>><?php esc_html_e( "Show", 'post-types-order' ) ?></option>
+                                                        <option value="hide" <?php if(isset($options['show_reorder_interfaces'][$post_type_name]) && $options['show_reorder_interfaces'][$post_type_name] == 'hide') {echo ' selected="selected"';} ?>><?php esc_html_e( "Hide", 'post-types-order' ) ?></option>
                                                     </select> &nbsp;&nbsp;<?php echo esc_html( $post_type_data->labels->singular_name ); ?>
                                                 </label><br />&nbsp;</p>
                                                 <?php  } ?>
