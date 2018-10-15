@@ -204,7 +204,7 @@
                         
                     ?>
                         <div class="error fade">
-                            <p><strong><?php _e('Post Types Order must be configured. Please go to', 'post-types-order') ?> <a href="<?php echo get_admin_url() ?>options-general.php?page=cpto-options"><?php _e('Settings Page', 'post-types-order') ?></a> <?php _e('make the configuration and save', 'post-types-order') ?></strong></p>
+                            <p><strong><?php esc_html_e('Post Types Order must be configured. Please go to', 'post-types-order'); ?> <a href="<?php echo esc_attr( get_admin_url() ); ?>options-general.php?page=cpto-options"><?php esc_html_e('Settings Page', 'post-types-order'); ?></a> <?php esc_html_e('make the configuration and save', 'post-types-order'); ?></strong></p>
                         </div>
                     <?php
                 }
@@ -513,7 +513,7 @@
                     ?>
                     <div id="cpto" class="wrap">
                         <div class="icon32" id="icon-edit"><br></div>
-                        <h2><?php echo $this->current_post_type->labels->singular_name . ' -  '. __('Re-Order', 'post-types-order') ?></h2>
+                        <h2><?php echo esc_html( $this->current_post_type->labels->singular_name . ' -  '. esc_html__('Re-Order', 'post-types-order') ); ?></h2>
 
                         <?php $this->functions->cpt_info_box(); ?>  
                         
@@ -521,7 +521,7 @@
                         
                         <noscript>
                             <div class="error message">
-                                <p><?php _e('This plugin can\'t work without javascript, because it\'s use drag and drop and AJAX.', 'post-types-order') ?></p>
+                                <p><?php esc_html_e('This plugin can\'t work without javascript, because it\'s use drag and drop and AJAX.', 'post-types-order'); ?></p>
                             </div>
                         </noscript>
                         
@@ -534,7 +534,7 @@
                         </div>
                         
                         <p class="submit">
-                            <a href="javascript: void(0)" id="save-order" class="button-primary"><?php _e('Update', 'post-types-order' ) ?></a>
+                            <a href="javascript: void(0)" id="save-order" class="button-primary"><?php esc_html_e('Update', 'post-types-order' ); ?></a>
                         </p>
                         
                         <?php wp_nonce_field( 'interface_sort_nonce', 'interface_sort_nonce' ); ?>
@@ -555,7 +555,7 @@
                                     jQuery("html, body").animate({ scrollTop: 0 }, "fast");
                                     
                                     jQuery.post( ajaxurl, { action:'update-custom-type-order', order:jQuery("#sortable").sortable("serialize"), 'interface_sort_nonce' : jQuery('#interface_sort_nonce').val() }, function() {
-                                        jQuery("#ajax-response").html('<div class="message updated fade"><p><?php _e('Items Order Updated', 'post-types-order') ?></p></div>');
+                                        jQuery("#ajax-response").html('<div class="message updated fade"><p><?php esc_html_e('Items Order Updated', 'post-types-order') ?></p></div>');
                                         jQuery("#ajax-response div").delay(3000).hide("slow");
                                     });
                                 });
@@ -582,7 +582,13 @@
                     $output = '';
 
                     $r['exclude'] = implode( ',', apply_filters('wp_list_pages_excludes', array()) );
-
+	
+	                /* Fix for "Undefined variable $post_type" error ('post_type' => $post_type,). */
+	                $post_type='';
+	                if ( ! isset( $r['post_type'] ) ) {
+		                $post_type = $this->current_post_type->name;
+	                }
+				  
                     // Query pages.
                     $r['hierarchical'] = 0;
                     $args = array(
@@ -606,7 +612,7 @@
 
                     $output = apply_filters('wp_list_pages', $output, $r);
 
-                    echo $output;
+                    echo wp_kses_post( $output );
                 }
             
             function walkTree($pages, $depth, $r) 
