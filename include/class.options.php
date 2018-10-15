@@ -115,7 +115,7 @@
                                         <tr valign="top">
                                             <th scope="row" style="text-align: right;"><label for="autosort"><?php esc_html_e('Auto Sort', 'post-types-order'); ?></label></th>
                                             <td>
-                                                <p><input type="checkbox" <?php esc_attr( checked( '1', $options['autosort'] ) ); ?> id="autosort" value="1" name="autosort"> <?php esc_html_e("If checked, the plug-in automatically update the WordPress queries to use the new order (<b>No code update is necessarily</b>)", 'post-types-order'); ?></p>
+                                                <p><input type="checkbox" <?php checked( '1', $options['autosort'] ); ?> id="autosort" value="1" name="autosort"> <?php esc_html_e("If checked, the plug-in automatically update the WordPress queries to use the new order (<b>No code update is necessarily</b>)", 'post-types-order'); ?></p>
                                                 <p class="description"><?php esc_html_e("If only certain queries need to use the custom sort, keep this unchecked and include 'orderby' => 'menu_order' into query parameters", 'post-types-order') ?>.
                                                 <br />
                                                 <a href="http://www.nsp-code.com/sample-code-on-how-to-apply-the-sort-for-post-types-order-plugin/" target="_blank"><?php esc_html_e('Additional Description and Examples', 'post-types-order') ?></a></p>
@@ -128,7 +128,7 @@
                                             <th scope="row" style="text-align: right;"><label for="adminsort"><?php esc_html_e('Admin Sort', 'post-types-order') ?></label></th>
                                             <td>
                                                 <p>
-                                                <input type="checkbox" <?php esc_attr( checked( '1', $options['adminsort'] ) ); ?> id="adminsort" value="1" name="adminsort">
+                                                <input type="checkbox" <?php checked( '1', $options['adminsort'] ); ?> id="adminsort" value="1" name="adminsort">
                                                 <?php esc_html_e("To affect the admin interface, to see the post types per your new sort, this need to be checked", 'post-types-order'); ?>.</p>
                                             </td>
                                         </tr>
@@ -137,7 +137,7 @@
                                             <th scope="row" style="text-align: right;"><label for="archive_drag_drop"><?php esc_html_e('Use query ASC / DESC parameter ', 'post-types-order') ?></label></th>
                                             <td>
                                                 <p>
-                                                <input type="checkbox" <?php esc_attr( checked( '1', $options['use_query_ASC_DESC'] ) ); ?> id="use_query_ASC_DESC" value="1" name="use_query_ASC_DESC">
+                                                <input type="checkbox" <?php checked( '1', $options['use_query_ASC_DESC'] ); ?> id="use_query_ASC_DESC" value="1" name="use_query_ASC_DESC">
                                                 <?php esc_html_e("If the query include an Ascending or Descending order paramether, use that. If query order is set to DESC the order will be reversed.", 'post-types-order') ?>.</p>
                                             </td>
                                         </tr>
@@ -146,7 +146,7 @@
                                             <th scope="row" style="text-align: right;"><label for="archive_drag_drop"><?php esc_html_e('Archive Drag&Drop ', 'post-types-order') ?></label></th>
                                             <td>
                                                 <p>
-                                                <input type="checkbox" <?php esc_attr( checked( '1', $options['archive_drag_drop'] ) ); ?> id="archive_drag_drop" value="1" name="archive_drag_drop">
+                                                <input type="checkbox" <?php checked( '1', $options['archive_drag_drop'] ); ?> id="archive_drag_drop" value="1" name="archive_drag_drop">
                                                 <?php esc_html_e("Allow sortable drag & drop functionality within default WordPress post type archive. Admin Sort need to be active.", 'post-types-order') ?>.</p>
                                             </td>
                                         </tr>
@@ -155,7 +155,7 @@
                                             <th scope="row" style="text-align: right;"><label for="navigation_sort_apply"><?php esc_html_e('Next / Previous Apply', 'post-types-order') ?></label></th>
                                             <td>
                                                 <p>
-                                                <input type="checkbox" <?php esc_attr( checked( '1', $options['navigation_sort_apply'] ) ); ?> id="navigation_sort_apply" value="1" name="navigation_sort_apply">
+                                                <input type="checkbox" <?php checked( '1', $options['navigation_sort_apply'] ); ?> id="navigation_sort_apply" value="1" name="navigation_sort_apply">
                                                 <?php esc_html_e("Apply the sort on Next / Previous site-wide navigation.", 'post-types-order') ?> <?php esc_html_e('This can also be controlled through', 'post-types-order') ?> <a href="http://www.nsp-code.com/apply-custom-sorting-for-next-previous-site-wide-navigation/" target="_blank"><?php esc_html_e('code', 'post-types-order') ?></a></p>
                                             </td>
                                         </tr>
